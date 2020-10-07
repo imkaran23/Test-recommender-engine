@@ -16,7 +16,7 @@ response3 = requests.post(url, data=j_data, headers=headers)
 # print(response3, response3.text)
 
 response3 = pd.read_json(response3.text)
-response3 = response3.merge(pd.read_csv("../Post dataset/posts.csv"), on='itemID')
-response3 = response3.merge(pd.read_csv("../Post dataset/users.csv"), on='userID')
+response3 = response3.merge(pd.read_csv("Post dataset/posts.csv"), on='itemID')
+response3 = response3.merge(pd.read_csv("Post dataset/users.csv"), on='userID')
 
 print(response3.head(10))

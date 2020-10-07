@@ -71,7 +71,7 @@ def predict_by_userID():
     try:
         user_id = request.json
         users, items, preds = [], [], []
-        data = pd.read_csv('../Post dataset/data.csv')
+        data = pd.read_csv('Post dataset/data.csv')
         item = list(data.itemID.unique())
         for user in user_id:
             user = [user] * len(item)
@@ -95,8 +95,8 @@ def predict_by_userID():
             lambda x: model.predict(
                 user_ids=x["uid"],
                 item_ids=[x["iid"]],
-#                 user_features=user_features,
-#                 item_features=item_features,
+                user_features=user_features,
+                item_features=item_features,
                 num_threads=num_threads,
             )[0],
             axis=1,

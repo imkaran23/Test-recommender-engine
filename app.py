@@ -70,6 +70,7 @@ def home():
 def predict_by_userID():
     try:
         user_id = request.json
+        return user_id
         users, items, preds = [], [], []
         data = pd.read_csv('Post dataset/data.csv')
         item = list(data.itemID.unique())

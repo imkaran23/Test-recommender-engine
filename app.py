@@ -8,7 +8,7 @@ import json
 
 app = Flask(__name__)
 CORS(app)
-api = Api(app)
+# api = Api(app)
 
 @app.before_first_request
 def load():

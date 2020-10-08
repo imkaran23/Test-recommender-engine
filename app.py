@@ -8,6 +8,28 @@ import json
 app = Flask(__name__)
 api = Api(app)
 
+@app.before_first_request
+def load():
+    model = open("model2.pickle","rb")
+    model = pickle.load(model)
+
+    uid_map = open("uid_map.pickle","rb")
+    uid_map = pickle.load(uid_map)
+
+    iid_map = open("iid_map.pickle","rb")
+    iid_map = pickle.load(iid_map)
+
+    interactions = open("train_interactions2.pickle","rb")
+    interactions = pickle.load(interactions)
+
+    user_features = open("user_features.pickle","rb")
+    user_features = pickle.load(user_features)
+
+    item_features = open("item_features.pickle","rb")
+    item_features = pickle.load(item_features)
+
+    num_threads = 8    
+
 @app.route('/', methods=['GET'])
 def home():
     return "<h1>RECOMMENDER ENGINE</h1><p>This is a prototype API for recommending products for an user.</p>"
@@ -116,23 +138,5 @@ def predict_by_userID():
         return jsonify({'trace': traceback.format_exc()})
 
 if __name__ =="__main__":
-    model = open("model2.pickle","rb")
-    model = pickle.load(model)
-
-    uid_map = open("uid_map.pickle","rb")
-    uid_map = pickle.load(uid_map)
-
-    iid_map = open("iid_map.pickle","rb")
-    iid_map = pickle.load(iid_map)
-
-    interactions = open("train_interactions2.pickle","rb")
-    interactions = pickle.load(interactions)
-
-    user_features = open("user_features.pickle","rb")
-    user_features = pickle.load(user_features)
-
-    item_features = open("item_features.pickle","rb")
-    item_features = pickle.load(item_features)
     
-    num_threads = 8    
-    app.run(debug=True)
+    app.run()

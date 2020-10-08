@@ -73,8 +73,8 @@ def predict_by_userID():
 #         return jsonify({'ID':user_id}),200
         users, items, preds = [], [], []
         data = pd.read_csv('Post dataset/data.csv')
-        data = data.to_json(orient="records")
-        return data,200
+#         data = data.to_json(orient="records")
+#         return data,200
         item = list(data.itemID.unique())
         for user in user_id:
             user = [user] * len(item)

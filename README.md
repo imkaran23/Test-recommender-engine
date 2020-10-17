@@ -4,6 +4,6 @@ In this directory, notebooks are provided to give a deep dive of hybrid recommen
 
 | Notebook | Environment | Description |
 | --- | --- | --- |
-| [lightfm_deep_dive - Copy.ipynb](lightfm_deep_dive - Copy.ipynb) | Python CPU | Deep dive into hybrid matrix factorisation model with LightFM.
+| [lightfm_deep_dive](lightfm_deep_dive.ipynb) | Python CPU | Deep dive into hybrid matrix factorisation model with LightFM.
 
 Details on model training are best found inside notebook.
